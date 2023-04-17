@@ -4,7 +4,15 @@ import customtkinter as ctk
 
 
 def py_func():
-    raise Exception('py_func function should be implemented')
+    raise Exception('py_func function should be implemented!')
+
+
+def java_func():
+    raise Exception("Java_func should be implemented!")
+
+
+def script_func():
+    raise Exception("script_func should be implemented!")
 
 
 # create a window
@@ -20,12 +28,14 @@ title_label = ctk.CTkLabel(master=window, text="Project Idea Generator", font=ct
 title_label.pack(padx=10, pady=(49, 20))
 
 # frame
-frame = ctk.CTkFrame(master=window, bg_color="white")
+frame = ctk.CTkFrame(master=window)
 frame.pack(fill="x", padx=100)
 
-# button
-python_button = ctk.CTkButton(master=window, text="Python", command=py_func)
-python_button.pack(pady=50)
+# creating nested frames, lable
+language_frame = ctk.CTkFrame(master=frame)
+language_frame.pack(padx=100, pady=(20,5), fill="both")
+language_label = ctk.CTkLabel(master=language_frame, text="Programming Language", font=ctk.CTkFont(weight="bold"))
+language_label.pack()
 # running
 window.mainloop()
 

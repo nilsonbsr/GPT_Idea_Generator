@@ -3,8 +3,40 @@ import openai
 import customtkinter as ctk
 
 
+<<<<<<< Updated upstream
 def py_func():
     raise Exception('py_func function should be implemented')
+=======
+# interact with chatGPT
+def generate():
+    prompt = "Please generate 10 ideas for coding project. "
+    language = language_dropdown.get()
+    prompt += "The programming language is " + language + ". "
+    difficulty = difficulty_value.get()
+    prompt += "The difficulty is " + difficulty + ". "
+
+    if checkbox1.get():
+        prompt += "The project should include a database."
+    if checkbox2.get():
+        prompt += "The project should include an API"
+
+    print(prompt)
+    # get the key from environment variable
+    openai.api_key = os.getenv("OPENAI_API_KEY")
+
+    # send a request
+    response = openai.ChatCompletion.create(
+        model="gpt-3.5-turbo",
+        messages=[
+            {"role": "user", "content": "prompt"}
+        ]
+    )
+    # get the answer provided by chatgpt
+    answer = response.choices[0].message.content
+    print(answer)
+    result.insert("0.0", answer)
+
+>>>>>>> Stashed changes
 
 
 # create a window
